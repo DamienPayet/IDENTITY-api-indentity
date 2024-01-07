@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>Di2P1G3.Authentication.Api</RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Autofac.Extensions.DependencyInjection.AzureFunctions" Version="6.0.0.81" />
+        <PackageReference Include="Mapster" Version="7.2.0" />
+        <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
+        <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.0.4" OutputItemType="Analyzer" />
+        <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.5.1" />
+        <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" Version="0.8.1-preview" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="host.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="local.settings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Di2P1G3.Authentication.Core\Di2P1G3.Authentication.Core.csproj" />
+        <ProjectReference Include="..\Di2P1G3.Authentication.Infrastructure\Di2P1G3.Authentication.Infrastructure.csproj" />
+        <ProjectReference Include="..\Di2P1G3.Dependency.Injection\Di2P1G3.Dependency.Injection.csproj" />
+    </ItemGroup>
+</Project>
